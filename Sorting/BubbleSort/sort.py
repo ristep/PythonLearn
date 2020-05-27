@@ -10,7 +10,7 @@ def bubble_sort(ls):
         print(ls)  # Print after the pass of a list.
 
 
-with open('list.yaml') as lst:
+with open('../list.yaml') as lst:
     lst = yaml.load(lst, Loader=yaml.FullLoader)['list']
     print (yaml.dump(lst)) # dump unsorted list 
     bubble_sort(lst)       # sort the list 

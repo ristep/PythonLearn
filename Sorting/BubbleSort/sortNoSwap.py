@@ -15,7 +15,7 @@ def bubble_sort(ls):
             print('{0:4d} {1}'.format(iter, ls))   # Print after the pass of a list.
 
 
-with open('list.yaml') as lst:
+with open('../list.yaml') as lst:
     lst = yaml.load(lst, Loader=yaml.FullLoader)['list']
     print("Unsorted List:")
     print (lst)             # dump unsorted list 
