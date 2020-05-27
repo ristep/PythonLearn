@@ -18,8 +18,8 @@ def bubble_sort(ls):
 with open('list.yaml') as lst:
     lst = yaml.load(lst, Loader=yaml.FullLoader)['list']
     print("Unsorted List:")
-    print (lst)            # dump unsorted list 
+    print (lst)             # dump unsorted list 
     print("Sorting steps:")
-    bubble_sort(lst)       # sort the list 
+    bubble_sort(lst)        # sort the list 
     print('Sorted List:')
-    print (lst) # dump sorted list
+    print (lst)             # dump sorted list
