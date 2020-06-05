@@ -1,42 +1,24 @@
 #!/usr/bin/python3
 import yaml
 
-# The simple implementation of Bubble Sort
 def insertion_sort(array):
-    # Loop from the second element of the array until
-    # the last element
-    for i in range(1, len(array)):
-        # This is the element we want to position in its
-        # correct place
-        key_item = array[i]
 
-        # Initialize the variable that will be used to
-        # find the correct position of the element referenced
-        # by `key_item`
+    for i in range(1, len(array)):
+        keyItem = array[i]         # current element
         j = i - 1
 
-        # Run through the list of items (the left
-        # portion of the array) and find the correct position
-        # of the element referenced by `key_item`. Do this only
-        # if `key_item` is smaller than its adjacent values.
-        while j >= 0 and array[j] > key_item:
-            # Shift the value one position to the left
-            # and reposition j to point to the next element
-            # (from right to left)
-            array[j + 1] = array[j]
-            j -= 1
+        while j >= 0 and array[j] > keyItem:
+            array[j + 1], j = array[j], j-1
 
-        # When you finish shifting the elements, you can position
-        # `key_item` in its correct location
-        array[j + 1] = key_item
+        array[j + 1] = keyItem
+        print('{0:4d} {1} {2:5d}'.format(i, array, keyItem))
 
-    return array
 
-with open('list.yaml') as lst:
+with open('../list.yaml') as lst:
     lst = yaml.load(lst, Loader=yaml.FullLoader)['list']
-    print("Unsorted List:")
+    print ("Unsorted List:")
     print (lst)                 # dump unsorted list 
-    print("Sorting steps:")
+    print ("Sorting steps:")
     insertion_sort(lst)         # sort the list 
-    print('Sorted List:')
+    print ('Sorted List:')
     print (lst)                 # dump sorted list    
