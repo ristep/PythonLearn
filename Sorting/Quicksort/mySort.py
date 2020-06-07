@@ -4,25 +4,26 @@ import yaml
 swap = 0
 
 def quicksort(A, lo, hi):
-    if lo < hi :
-        partition_border = partition(A, lo, hi)
-        quicksort(A, lo, partition_border)
-        quicksort(A, partition_border + 1, hi)
+    if lo < hi:
+        parti = partition(A, lo, hi)
+        quicksort(A, lo, parti )
+        quicksort(A, parti + 1, hi)
 
 def partition(A, lo, hi):
     global swap
+    i, j = lo, hi
     pivot = A[(hi + lo) // 2]
-    i = lo
-    j = hi
-    while True:
-        while A[i] < pivot : i = i + 1
-        while A[j] > pivot : j = j - 1
-        if i >= j : return j
-        print("Swap {} {}".format(A[i],A[j]))
-        print(A)
-        swap, A[i], A[j] = swap+1, A[j], A[i]
-        i = i + 1
-        j = j - 1
+    while i < j :
+        while A[i] < pivot : i += 1
+        while A[j] > pivot : j -= 1
+        if i >= j  : return j
+        if A[i] > A[j] :
+            print("Swap {} {}".format(A[i],A[j]))
+            print(A)
+            swap, A[i], A[j] = swap+1, A[j], A[i]
+        i += 1
+        j -= 1
+    return j    
 
 with open('../list.yaml') as lst:
     lst = yaml.load(lst, Loader=yaml.FullLoader)['list']
